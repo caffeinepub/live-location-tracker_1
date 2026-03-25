@@ -1,0 +1,107 @@
+{
+  "kind": "build_request",
+  "title": "Build live location tracker with interactive map",
+  "projectName": "Live Location Tracker",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Integrate Leaflet.js map library (version 1.9.4) using CDN (https://unpkg.com/leaflet@1.9.4/dist/leaflet.js and https://unpkg.com/leaflet@1.9.4/dist/leaflet.css) to render an interactive full-screen map with OpenStreetMap tiles (https://tile.openstreetmap.org/{z}/{x}/{y}.png with maxZoom: 19)",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "<link rel=\"stylesheet\" href=\"https://unpkg.com/leaflet@1.9.4/dist/leaflet.css\"",
+          "<script src=\"https://unpkg.com/leaflet@1.9.4/dist/leaflet.js\"",
+          "L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Map renders at 100vh (full viewport height) and 100% width",
+        "OpenStreetMap tiles load correctly with proper attribution",
+        "Map is interactive (pan, zoom) using Leaflet controls"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement browser Geolocation API tracking that continuously watches user position (watch: true), automatically centers the map on user location with zoom level 16, and updates a blue marker as position changes",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "map.locate({setView: true, maxZoom: 16, watch: true})",
+          "marker = L.marker(e.latlng).addTo(map)",
+          "if (marker) { marker.setLatLng(e.latlng); }"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Browser requests geolocation permission on page load",
+        "Map auto-centers to user's GPS coordinates with zoom level 16",
+        "Blue marker appears at user location with 'You are here' popup",
+        "Marker position updates in real-time as user moves",
+        "Handles location permission denial with appropriate error handling"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Display a status overlay box positioned absolutely at top-right (10px from top and right) with white background, rounded corners (5px border-radius), and subtle shadow (0 0 10px rgba(0,0,0,0.2)) showing: 'Location Tracker' heading, tracking status text ('Waiting for permission...', 'Tracking Active', or 'Error: Location denied'), and live latitude/longitude coordinates formatted to 5 decimal places",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "#status { position: absolute; top: 10px; right: 10px; z-index: 1000",
+          "document.getElementById('status-text').innerText = \"Tracking Active\"",
+          "document.getElementById('lat').innerText = e.latitude.toFixed(5)",
+          "document.getElementById('lon').innerText = e.longitude.toFixed(5)"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Status box appears at top-right corner with z-index: 1000 to overlay map",
+        "Status text updates from 'Waiting for permission...' to 'Tracking Active' when location is acquired",
+        "Latitude and longitude display update in real-time showing 5 decimal places",
+        "Error state displays 'Error: Location denied' if permission is rejected",
+        "Box has white background, 15px padding, 5px border-radius, and box-shadow"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Apply a clean, modern minimal design aesthetic with a focus on functional clarity: use a crisp monochrome palette (white UI elements on transparent overlays), sans-serif typography (Arial), and subtle elevation through soft shadows to create visual hierarchy without distraction from the map content",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Status overlay uses white background with subtle shadow for depth",
+        "Typography is clear and readable with sans-serif font",
+        "Design prioritizes map visibility with minimal UI obstruction",
+        "Overall aesthetic is clean and utilitarian"
+      ]
+    }
+  ],
+  "constraints": [
+    "Must use Leaflet.js version 1.9.4 from unpkg.com CDN",
+    "Must use OpenStreetMap tiles as map provider",
+    "Must not implement backend location storage or tracking history",
+    "Must handle geolocation permission denial gracefully without app crash"
+  ],
+  "nonGoals": [
+    "Location history or tracking trails",
+    "Multi-user location sharing",
+    "Backend storage of location data",
+    "GPS accuracy visualization (circle radius)",
+    "Custom map styles beyond OpenStreetMap default",
+    "Mobile-specific native GPS features"
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

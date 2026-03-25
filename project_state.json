@@ -1,0 +1,65 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Live location tracker web app using Leaflet.js to display real-time GPS position on an interactive map",
+  "architectural_notes": [
+    "Uses Leaflet.js library for map rendering and GPS tracking",
+    "OpenStreetMap tiles for map imagery",
+    "Browser Geolocation API with continuous watch mode",
+    "Single-page HTML app with embedded CSS and JavaScript"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-integrate-leaflet-js-map-library-version-1-9-4-using-cdn-https-unpkg-com-leaflet-1-9-4-dist-leaflet-js-and-https-unpkg-com-leaflet-1-9-4-dist-leaflet-css-to-render-an-interactive-full-screen-map-with-openstreetmap-tiles-https-tile-openstreetmap-org-z-x-y-png-with-maxzoom-19",
+      "title": "Integrate Leaflet.js map library (version 1.9.4) using CDN (https://unpkg.com/leaflet@1.9.4/dist/leaflet.js and https://unpkg.com/leaflet@1.9.4/dist/leaflet.css) to render an interactive full-screen map with OpenStreetMap tiles (https://tile.openstreetmap.org/{z}/{x}/{y}.png with maxZoom: 19)",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-browser-geolocation-api-tracking-that-continuously-watches-user-position-watch-true-automatically-centers-the-map-on-user-location-with-zoom-level-16-and-updates-a-blue-marker-as-position-changes",
+      "title": "Implement browser Geolocation API tracking that continuously watches user position (watch: true), automatically centers the map on user location with zoom level 16, and updates a blue marker as position changes",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-display-a-status-overlay-box-positioned-absolutely-at-top-right-10px-from-top-and-right-with-white-background-rounded-corners-5px-border-radius-and-subtle-shadow-0-0-10px-rgba-0-0-0-0-2-showing-location-tracker-heading-tracking-status-text-waiting-for-permission-tracking-active-or-error-location-denied-and-live-latitude-longitude-coordinates-formatted-to-5-decimal-places",
+      "title": "Display a status overlay box positioned absolutely at top-right (10px from top and right) with white background, rounded corners (5px border-radius), and subtle shadow (0 0 10px rgba(0,0,0,0.2)) showing: 'Location Tracker' heading, tracking status text ('Waiting for permission...', 'Tracking Active', or 'Error: Location denied'), and live latitude/longitude coordinates formatted to 5 decimal places",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-clean-modern-minimal-design-aesthetic-with-a-focus-on-functional-clarity-use-a-crisp-monochrome-palette-white-ui-elements-on-transparent-overlays-sans-serif-typography-arial-and-subtle-elevation-through-soft-shadows-to-create-visual-hierarchy-without-distraction-from-the-map-content",
+      "title": "Apply a clean, modern minimal design aesthetic with a focus on functional clarity: use a crisp monochrome palette (white UI elements on transparent overlays), sans-serif typography (Arial), and subtle elevation through soft shadows to create visual hierarchy without distraction from the map content",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Display live GPS location on interactive map with real-time tracking",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Show location status overlay with coordinates and tracking state",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Live Location Tracker",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

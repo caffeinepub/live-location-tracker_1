@@ -1,0 +1,82 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-integrate-leaflet-js-map-library-version-1-9-4-using-cdn-https-unpkg-com-leaflet-1-9-4-dist-leaflet-js-and-https-unpkg-com-leaflet-1-9-4-dist-leaflet-css-to-render-an-interactive-full-screen-map-with-openstreetmap-tiles-https-tile-openstreetmap-org-z-x-y-png-with-maxzoom-19",
+      "featureTitle": "Integrate Leaflet.js map library (version 1.9.4) using CDN (https://unpkg.com/leaflet@1.9.4/dist/leaflet.js and https://unpkg.com/leaflet@1.9.4/dist/leaflet.css) to render an interactive full-screen map with OpenStreetMap tiles (https://tile.openstreetmap.org/{z}/{x}/{y}.png with maxZoom: 19)",
+      "files": [
+        "frontend/index.html",
+        "frontend/src/App.tsx",
+        "frontend/src/index.css"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-browser-geolocation-api-tracking-that-continuously-watches-user-position-watch-true-automatically-centers-the-map-on-user-location-with-zoom-level-16-and-updates-a-blue-marker-as-position-changes",
+      "featureTitle": "Implement browser Geolocation API tracking that continuously watches user position (watch: true), automatically centers the map on user location with zoom level 16, and updates a blue marker as position changes",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/hooks/useGeolocation.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-display-a-status-overlay-box-positioned-absolutely-at-top-right-10px-from-top-and-right-with-white-background-rounded-corners-5px-border-radius-and-subtle-shadow-0-0-10px-rgba-0-0-0-0-2-showing-location-tracker-heading-tracking-status-text-waiting-for-permission-tracking-active-or-error-location-denied-and-live-latitude-longitude-coordinates-formatted-to-5-decimal-places",
+      "featureTitle": "Display a status overlay box positioned absolutely at top-right (10px from top and right) with white background, rounded corners (5px border-radius), and subtle shadow (0 0 10px rgba(0,0,0,0.2)) showing: 'Location Tracker' heading, tracking status text ('Waiting for permission...', 'Tracking Active', or 'Error: Location denied'), and live latitude/longitude coordinates formatted to 5 decimal places",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/StatusOverlay.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-a-clean-modern-minimal-design-aesthetic-with-a-focus-on-functional-clarity-use-a-crisp-monochrome-palette-white-ui-elements-on-transparent-overlays-sans-serif-typography-arial-and-subtle-elevation-through-soft-shadows-to-create-visual-hierarchy-without-distraction-from-the-map-content",
+      "featureTitle": "Apply a clean, modern minimal design aesthetic with a focus on functional clarity: use a crisp monochrome palette (white UI elements on transparent overlays), sans-serif typography (Arial), and subtle elevation through soft shadows to create visual hierarchy without distraction from the map content",
+      "files": [
+        "frontend/src/components/StatusOverlay.tsx",
+        "frontend/src/index.css"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

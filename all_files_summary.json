@@ -1,0 +1,18 @@
+{
+  "backend/main.mo": "Empty Motoko actor with no backend logic; all functionality is client-side.",
+  "feature_evidence.json": "Feature evidence report documenting three implemented features: Leaflet.js map integration with OpenStreetMap tiles, browser Geolocation API tracking with continuous position updates, and a status overlay UI component with live coordinates display.",
+  "frontend-file-summaries.txt": "JSON-formatted summaries of all frontend files describing their roles in the location tracking application.",
+  "frontend/index.css": "Tailwind CSS configuration with OKLCH color system variables for light and dark themes, plus base styles for body and border elements.",
+  "frontend/index.html": "HTML entry point that loads Leaflet.js 1.9.4 CSS and JS from CDN with integrity hashes and mounts the React app.",
+  "frontend/src/App.tsx": "Main React component that initializes Leaflet map, integrates geolocation tracking via custom hook, manages map markers, and renders StatusOverlay and Footer components.",
+  "frontend/src/components/Footer.tsx": "Footer component displaying copyright, attribution, and a caffeine.ai link with UTM tracking parameters.",
+  "frontend/src/components/StatusOverlay.tsx": "Status overlay UI component that displays tracking status with icons, color-coded states, and live latitude/longitude coordinates formatted to 5 decimal places.",
+  "frontend/src/hooks/useActor.ts": "React hook for managing ICP backend actor instances with authentication via Internet Identity, including query invalidation on identity changes.",
+  "frontend/src/hooks/useGeolocation.ts": "Custom React hook that manages browser Geolocation API with continuous position watching (watchPosition), error handling, and status tracking.",
+  "frontend/src/hooks/useInternetIdentity.ts": "React context and hook for Internet Identity authentication, providing login/logout functionality and identity management with AuthClient integration.",
+  "frontend/src/hooks/useQueries.ts": "Empty placeholder file with no backend queries since all location tracking is handled client-side.",
+  "frontend/src/index.css": "Tailwind CSS configuration with custom CSS variables for light/dark theme colors (using OKLCH color space), base styles for full-height layout, and Leaflet map container styling.",
+  "frontend/src/main.tsx": "React application entry point that sets up QueryClient for data fetching, InternetIdentityProvider for authentication, and renders the root App component.",
+  "frontend/tailwind.config.js": "Tailwind configuration defining custom color tokens mapped to CSS variables (OKLCH format), border radius utilities, accordion animations, and includes typography, container queries, and animate plugins.",
+  "project_state.json": "Project metadata describing a live location tracker app built with Leaflet.js, OpenStreetMap tiles, and browser Geolocation API, with four implemented features for map rendering, GPS tracking, status overlay, and minimal design aesthetic."
+}

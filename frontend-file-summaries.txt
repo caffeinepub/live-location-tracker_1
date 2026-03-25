@@ -1,0 +1,10 @@
+{
+  "frontend/index.html": "HTML entry point with Leaflet.js 1.9.4 CDN links (CSS and JS) for map functionality.",
+  "frontend/src/index.css": "Global styles with OKLCH color system, full-height layout for map container, and Leaflet-specific styling.",
+  "frontend/src/App.tsx": "Main application component that initializes Leaflet map, manages geolocation tracking, and renders status overlay and footer.",
+  "frontend/src/hooks/useGeolocation.ts": "Custom React hook that manages browser Geolocation API with continuous position watching and error handling.",
+  "frontend/src/hooks/useQueries.ts": "Empty placeholder file as all location tracking is handled client-side without backend interaction.",
+  "frontend/src/components/StatusOverlay.tsx": "Status overlay component displaying tracking state, latitude, and longitude with icons and color-coded status indicators.",
+  "frontend/src/components/Footer.tsx": "Footer component with copyright, attribution, and caffeine.ai link with UTM tracking parameters.",
+  "frontend/tailwind.config.js": "Tailwind configuration with extended color system and design tokens for consistent theming."
+}

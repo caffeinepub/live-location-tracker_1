@@ -1,0 +1,101 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Live Location Tracker with Interactive Map",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Integrate Leaflet.js map library to render an interactive full-screen map with OpenStreetMap tiles",
+      "acceptanceCriteria": [
+        "Map renders at 100vh (full viewport height) and 100% width",
+        "OpenStreetMap tiles load correctly with proper attribution",
+        "Map is interactive (pan, zoom) using Leaflet controls"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/index.html",
+          "operation": "modify",
+          "description": "Add Leaflet.js version 1.9.4 CDN links in the <head> section: stylesheet link to https://unpkg.com/leaflet@1.9.4/dist/leaflet.css and script tag to https://unpkg.com/leaflet@1.9.4/dist/leaflet.js. Ensure the script is loaded before any application JavaScript that uses Leaflet."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Create a full-screen map container div with id 'map' that takes up 100% width and 100vh height. Initialize Leaflet map instance with OpenStreetMap tiles (https://tile.openstreetmap.org/{z}/{x}/{y}.png) with maxZoom: 19 and proper attribution. Ensure map renders on component mount using useEffect hook."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add global styles to ensure the map container takes full viewport dimensions: set html, body, and #root to height: 100%, margin: 0, padding: 0. Add styles for #map to ensure it renders at 100vh height and 100% width with no overflow."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Implement browser Geolocation API tracking with continuous position watching, automatic map centering, and real-time marker updates",
+      "acceptanceCriteria": [
+        "Browser requests geolocation permission on page load",
+        "Map auto-centers to user's GPS coordinates with zoom level 16",
+        "Blue marker appears at user location with 'You are here' popup",
+        "Marker position updates in real-time as user moves",
+        "Handles location permission denial with appropriate error handling"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Implement Geolocation API tracking using map.locate with options: setView: true, maxZoom: 16, watch: true. Create a marker reference that initializes on first location event with L.marker and a 'You are here' popup. Update marker position using setLatLng on subsequent location updates. Add error handling for locationerror event to manage permission denial and other geolocation failures."
+        },
+        {
+          "path": "frontend/src/hooks/useGeolocation.ts",
+          "operation": "create",
+          "description": "Create a custom React hook to manage geolocation state including current position (latitude, longitude), tracking status ('waiting', 'active', 'error'), and error messages. Return these values and update them based on Leaflet location events (locationfound, locationerror)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Display a status overlay box showing tracking status and live coordinates",
+      "acceptanceCriteria": [
+        "Status box appears at top-right corner with z-index: 1000 to overlay map",
+        "Status text updates from 'Waiting for permission...' to 'Tracking Active' when location is acquired",
+        "Latitude and longitude display update in real-time showing 5 decimal places",
+        "Error state displays 'Error: Location denied' if permission is rejected",
+        "Box has white background, 15px padding, 5px border-radius, and box-shadow"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/StatusOverlay.tsx",
+          "operation": "create",
+          "description": "Create a StatusOverlay component that displays 'Location Tracker' heading, tracking status text, and latitude/longitude coordinates formatted to 5 decimal places. Accept status ('Waiting for permission...', 'Tracking Active', 'Error: Location denied') and coordinates as props. Apply styling: position: absolute, top: 10px, right: 10px, z-index: 1000, white background, 15px padding, 5px border-radius, box-shadow: 0 0 10px rgba(0,0,0,0.2)."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Import and render StatusOverlay component, passing current tracking status and live coordinates from the useGeolocation hook. Update status based on location events: 'Waiting for permission...' initially, 'Tracking Active' when locationfound fires, and 'Error: Location denied' on locationerror."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Apply clean, modern minimal design aesthetic with functional clarity",
+      "acceptanceCriteria": [
+        "Status overlay uses white background with subtle shadow for depth",
+        "Typography is clear and readable with sans-serif font",
+        "Design prioritizes map visibility with minimal UI obstruction",
+        "Overall aesthetic is clean and utilitarian"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Set global font-family to Arial, sans-serif for clean typography. Ensure body and html have no margins or padding to maximize map visibility. Add any additional global styles needed to maintain minimal, functional aesthetic."
+        },
+        {
+          "path": "frontend/src/components/StatusOverlay.tsx",
+          "operation": "modify",
+          "description": "Apply sans-serif typography (Arial) to all text elements within the overlay. Ensure white background and subtle shadow (0 0 10px rgba(0,0,0,0.2)) create visual hierarchy without distracting from map content. Keep overlay compact and unobtrusive to prioritize map visibility."
+        }
+      ]
+    }
+  ]
+}
